@@ -20,6 +20,7 @@ public class ClockTools extends AbstractView {
     private JButton mStart;
     private JButton mStop;
     private JButton mReset;
+    private JButton mSystemTime;
     
     public ClockTools(Observable model, ClockController controller) {
         super(model, controller);
@@ -34,6 +35,7 @@ public class ClockTools extends AbstractView {
         mStop = new JButton("Stop");
         mStop.setEnabled(false);
         mReset = new JButton("Reset");
+        mSystemTime = new JButton("System");
         
         // handle events: pass to controller
         mStart.addActionListener(new ActionListener() {
@@ -59,10 +61,18 @@ public class ClockTools extends AbstractView {
                 ((ClockController)getController()).onReset();
             }
         });
+
+        mSystemTime.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e){
+                ((ClockController)getController()).onSystemTime();
+            }
+        });
         
         mTools.add(mStart);
         mTools.add(mStop);
         mTools.add(mReset);       
+        mTools.add(mSystemTime);
     }
     
         /**

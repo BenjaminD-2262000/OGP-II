@@ -6,6 +6,7 @@ import java.util.GregorianCalendar;
 import java.util.Observable;
 import java.util.Timer;
 import java.util.TimerTask;
+import java.time.LocalDateTime;
 import javax.swing.SwingUtilities;
 
 /**
@@ -97,6 +98,14 @@ public class ClockModel extends Observable {
             notifyObservers(info);
         }
     }    
+
+    /**
+     * sets the clock time to the current system time. Notigies observers of any change in time.
+     */
+    public void setSystemTime(){
+        LocalDateTime time = LocalDateTime.now();
+        setTime(time.getHour(), time.getMinute(), time.getSecond());
+    }
     
     /**
      * Checks to see if a number is a valid hour (i.e. in [0,23]).

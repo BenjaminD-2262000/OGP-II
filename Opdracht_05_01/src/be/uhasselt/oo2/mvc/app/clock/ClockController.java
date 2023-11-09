@@ -28,6 +28,10 @@ public class ClockController extends AbstractController implements FocusListener
         ((ClockModel)getModel()).setTime(0,0,0);
     }
     
+    public void onSystemTime(){
+
+        ((ClockModel)getModel()).setSystemTime();
+    }
     
      public void focusGained(FocusEvent e){
         ((ClockModel)getModel()).stop();

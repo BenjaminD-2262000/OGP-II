@@ -29,6 +29,7 @@ public class ClockAnalogView extends JComponent implements View {
 
     private Observable mModel;
     private Controller mController;
+    private int mOffset = -5;
 
     int mHour;
     int mMinute;
@@ -67,7 +68,7 @@ public class ClockAnalogView extends JComponent implements View {
         ClockUpdate clockInfo = (ClockUpdate) info;
 
         // Store hour, minute, second for repainting.
-        mHour = clockInfo.getHour();
+        mHour = clockInfo.getHour() + mOffset;
         mMinute = clockInfo.getMinute();
         mSecond = clockInfo.getSecond();
 
